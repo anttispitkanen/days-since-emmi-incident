@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Days Since Last Emmi Incident</title>
+    <style>
+      body {
+        height: 100vh;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+      }
+      #target {
+        font-size: 3rem;
+        padding: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Days Since Last Emmi Incident:</p>
+    <div id="target"></div>
+
+    <script type="text/javascript">
+      function update() {
+        var target = document.querySelector("#target");
+        const lastIncidentDate = new Date("2020-05-15");
+        const now = new Date();
+
+        const daysSinceLastIncident = Math.floor(
+          (now.getTime() - lastIncidentDate.getTime()) / 1000 / 60 / 60 / 24
+        );
+
+        target.innerHTML = daysSinceLastIncident;
+      }
+
+      update();
+
+      window.setInterval(function() {
+        update();
+      }, 60000);
+    </script>
+  </body>
+</html>
